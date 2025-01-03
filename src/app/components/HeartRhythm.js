@@ -26,7 +26,7 @@ const HeartRhythm = () => {
       <div className="p-3">
         <div className="bg-white w-fit p-3 rounded-full">
           <Icon
-            icon="material-symbols:monitor-heart-outline-rounded"
+            icon="material-symbols:vital-signs"
             width="30"
             height="30"
             style={{ color: "#555" }}
@@ -34,7 +34,10 @@ const HeartRhythm = () => {
         </div>
         <p className="text-sm py-3">Heart Rate</p>
         <p className="text-lg flex items-start gap-1">
-          <span className="text-2xl font-semibold">{Math.round(heartRate)}</span>/<span>min</span>
+          <span className="text-2xl font-semibold">
+            {Math.round(heartRate)}
+          </span>
+          /<span>min</span>
         </p>
       </div>
     </div>
