@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import EcgData from "./EcgData";
 
 const HealthCard = () => {
     return (
@@ -18,7 +19,9 @@ const HealthCard = () => {
               Diagnostic
             </button>
           </div>
-          <div className="w-1/2 bg-white rounded-2xl"></div>
+          <div className="w-1/2 bg-white rounded-2xl">
+          <EcgData/>
+          </div>
         </div>
 
     );

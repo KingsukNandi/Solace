@@ -36,19 +36,19 @@ const Navbar = () => {
     {
       id: 4,
       label: "Help Near Me",
-      href: "/",
+      href: "/help-near-me",
       icon: "material-symbols:location-on-rounded",
     },
     {
       id: 5,
       label: "Settings",
-      href: "/",
+      href: "/settings",
       icon: "material-symbols:settings-rounded",
     },
   ];
 
   return (
-    <nav className="flex justify-between px-6 py-4">
+    <nav className="flex justify-between px-6 py-4 z-[999999] relative">
       <button
         onClick={() => {
           setIsOpened(!isOpened);
