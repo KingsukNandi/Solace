@@ -47,39 +47,37 @@ const OpenStreetMap = () => {
 
   // Get user's current location
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const getLocation = () => {
-        if (typeof window !== "undefined" && navigator.geolocation) {
-          const options = {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0,
-          };
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        const options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        };
 
-          const success = (position) => {
-            const { latitude, longitude } = position.coords;
-            setUserLocation({ lat: latitude, lon: longitude });
-            fetchNearbyHospitals(latitude, longitude);
-          };
+        const success = (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lon: longitude });
+          fetchNearbyHospitals(latitude, longitude);
+        };
 
-          const error = (err) => {
-            console.warn(`ERROR(${err.code}): ${err.message}`);
-            setError(
-              "Unable to retrieve your location. Please enable location services."
-            );
-          };
+        const error = (err) => {
+          console.warn(`ERROR(${err.code}): ${err.message}`);
+          setError(
+            "Unable to retrieve your location. Please enable location services."
+          );
+        };
 
-          try {
-            navigator.geolocation.getCurrentPosition(success, error, options);
-          } catch (error) {
-            console.error("Error getting location:", error);
-            setError("An unexpected error occurred. Please try again.");
-          }
+        try {
+          navigator.geolocation.getCurrentPosition(success, error, options);
+        } catch (error) {
+          console.error("Error getting location:", error);
+          setError("An unexpected error occurred. Please try again.");
         }
-      };
+      }
+    };
 
-      getLocation();
-    }
+    getLocation();
   }, []);
 
   // Handle manual location input

@@ -1,4 +1,9 @@
-import OpenStreetMap from "../components/OpenStreetMap";
+"use client";
+import dynamic from "next/dynamic";
+
+const OpenStreetMap = dynamic(() => import("../components/OpenStreetMap"), {
+  ssr: false,
+});
 
 export default function Page() {
   return (
