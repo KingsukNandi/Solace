@@ -32,7 +32,7 @@ const Navbar = () => {
     {
       id: 3,
       label: "Diagnosis",
-      href: "/",
+      href: "/diagnosis",
       icon: "material-symbols:diagnosis-rounded",
     },
     {
@@ -57,7 +57,7 @@ const Navbar = () => {
       id: 7,
       label: "Logs",
       href: "/logs",
-      // icon: "material-symbols:settings-rounded",
+      icon: "material-symbols:settings-rounded",
     },
   ];
 
