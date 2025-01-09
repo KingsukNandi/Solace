@@ -26,7 +26,7 @@ const Navbar = () => {
     {
       id: 2,
       label: "Analysis",
-      href: "/",
+      href: "/analysis",
       icon: "material-symbols:analytics-rounded",
     },
     {
@@ -37,21 +37,27 @@ const Navbar = () => {
     },
     {
       id: 4,
+      label: "AI Counsellor",
+      href: "/counselor",
+      icon: "material-symbols:diagnosis-rounded",
+    },
+    {
+      id: 5,
       label: "Help Near Me",
       href: "/help-near-me",
       icon: "material-symbols:location-on-rounded",
     },
     {
-      id: 5,
+      id: 6,
       label: "Settings",
       href: "/settings",
       icon: "material-symbols:settings-rounded",
     },
     {
-      id: 6,
+      id: 7,
       label: "Logs",
       href: "/logs",
-      icon: "material-symbols:settings-rounded",
+      // icon: "material-symbols:settings-rounded",
     },
   ];
 
