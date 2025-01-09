@@ -5,6 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
 
 // Zod Schema for Form Validation
 const settingsSchema = z.object({
@@ -42,14 +44,15 @@ const settingsSchema = z.object({
 
 // type SettingsFormData = z.infer<typeof settingsSchema>;
 
-export default function Page(){
+export default function Page() {
+  const { logOut } = useAuth();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm(
-  {
+  } = useForm({
     resolver: zodResolver(settingsSchema),
     defaultValues: {
       mentalHealthHistory: [],
@@ -63,9 +66,11 @@ export default function Page(){
   };
 
   const handleLogout = () => {
+    logOut();
     console.log("User  logged out");
     // Add logout logic here (e.g., clear session, redirect to login page)
-    alert("Logged out successfully!");
+    // alert("Logged out successfully!");
+    router.push("/");
   };
 
   return (
@@ -373,4 +378,4 @@ export default function Page(){
       </form>
     </div>
   );
-};
+}

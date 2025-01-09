@@ -3,9 +3,11 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isOpened, setIsOpened] = useState(false);
+  const { user } = useAuth();
   useEffect(() => {
     setIsOpened(false); //TODO: make it false
 
@@ -45,9 +47,15 @@ const Navbar = () => {
       href: "/settings",
       icon: "material-symbols:settings-rounded",
     },
+    {
+      id: 6,
+      label: "Logs",
+      href: "/logs",
+      icon: "material-symbols:settings-rounded",
+    },
   ];
 
-  return (
+  return user ? (
     <nav className="flex justify-between px-6 py-4 z-[999999] relative">
       <button
         onClick={() => {
@@ -72,7 +80,12 @@ const Navbar = () => {
         )}
       </button>
       <div className="flex justify-center items-center gap-3">
-        <p className="text-xl font-bold">Hello, Kingsuk!</p>
+        {user.displayName ? (
+          <p className="text-xl font-bold">Hello, {user.displayName}!</p>
+        ) : (
+          <></>
+        )}
+
         <div className="flex justify-center items-center">
           <Icon
             icon="material-symbols:person-outline-rounded"
@@ -119,6 +132,8 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+  ) : (
+    <></>
   );
 };
 

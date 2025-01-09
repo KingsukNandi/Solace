@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 
 const OpenStreetMap = dynamic(() => import("../components/OpenStreetMap"), {
   ssr: false,
+  loading: () => <div>Loading map...</div>
 });
 
 export default function Page() {

@@ -1,10 +1,19 @@
+"use client";
 import HealthCard from "./components/HealthCard";
 import HeartCard from "./components/HeartCard";
 import ContactDoctor from "./components/ContactDoctor";
 import Temperature from "./components/Temperature";
 import PredictedMood from "./components/PredictedMood";
+import { useAuth } from "./context/AuthContext";
+import Login from "./Login";
 
 export default function Home() {
+  const { user, logOut } = useAuth();
+  if (!user) {
+    return <Login />;
+  }
+  // console.log(user);
+
   return (
     <div className="px-3">
       <p className="text-5xl font-bold leading-tight pb-4">

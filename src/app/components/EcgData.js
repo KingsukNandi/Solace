@@ -87,13 +87,13 @@ const EcgData = () => {
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#8884d8"
+            stroke="#ef596f"
             activeDot={{ r: 8 }}
             isAnimationActive={false}
           >
             <LabelList position="top" />
           </Line>
-          <Line type="monotone" dataKey="timestamp" stroke="#82ca9d">
+          <Line type="monotone" dataKey="timestamp" stroke="#ef596f">
             <LabelList position="top" />
           </Line>
         </LineChart>
